@@ -10,9 +10,6 @@ const player2 = {
   display: document.querySelector('#player2-score')
 };
 
-console.log(player1);
-console.log(player2);
-
 const matchPointBtn = document.querySelector('#match-point');
 
 const resetBtn = document.querySelector('#reset-btn');
@@ -25,7 +22,7 @@ const disableBothBtn = () => {
     player1.button.disabled = true;
     player2.button.disabled = true;
   }
-}
+};
 
 const updateScores = (player) => {
   player.score += 1;
@@ -33,16 +30,21 @@ const updateScores = (player) => {
   if (player.score === matchPoint) {
     isGameOver = true;
   }
-}
+};
+
+matchPointBtn.addEventListener('change', () => {
+  console.log(matchPointBtn);
+  matchPoint = parseInt(matchPointBtn.value);
+  console.log({matchPoint});
+  // reset()
+});
 
 player1.button.addEventListener('click', () => {
-  console.log("player 1");
   updateScores(player1);
   disableBothBtn();
 });
 
 player2.button.addEventListener('click', () => {
-  console.log("player 2");
   updateScores(player2);
   disableBothBtn();
 });
