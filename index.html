@@ -35,12 +35,12 @@
                     <div class="column has-text-centered has-background-primary is-large p-5 is-size-3 has-text-weight-bold has-text-light">
                       Player 1
                       <br>
-                      <span id="player1">0</span>
+                      <span id="player1-score">0</span>
                     </div>
                     <div class="column has-text-centered has-background-info is-large p-5 is-size-3 has-text-weight-bold has-text-light">
                       Player 2
                       <br>
-                      <span id="player2">0</span>
+                      <span id="player2-score">0</span>
                     </div>
                   </div>
                   <div class="columns">
@@ -64,8 +64,8 @@
                 </div>
               </div>
               <footer class="card-footer">
-                <button class="player1-btn card-footer-item button is-primary is-large">+1</button>
-                <button class="player2-btn card-footer-item button is-info is-large">+1</button>
+                <button id="player1-btn" class="card-footer-item button is-primary is-large">+1</button>
+                <button id="player2-btn" class="card-footer-item button is-info is-large">+1</button>
               </footer>
               <footer class="card-footer">
                 <button class="reset-btn card-footer-item button is-danger mt-2">Reset</button>
@@ -75,5 +75,6 @@
         </div>
       </div>
     </section>
+    <script src="app.js"></script>
   </body>
 </html>
