@@ -20,28 +20,41 @@
         <div class="columns">
           <div class="column is-half is-offset-one-quarter">
             <div class="card">
+              <div>
+                <figure class="image is-2by1">
+                  <img src="https://images.unsplash.com/photo-1611762348135-5b09d2f0390d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" alt="">
+                </figure>
+              </div>
               <header class="card-header">
                 <p class="card-header-title">
-                  Component
+                  Ping Pong Scoreboard
                 </p>
-                <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-                </button>
               </header>
               <div class="card-content">
                 <div class="content">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-                  <a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-                  <br>
-                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                  <h1 class="title is-1">
+                    <span id="player1">0</span> to <span id="player2">0</span>
+                  </h1>
+                  <label for="match-point" class="label is-large is-inline">Playing To</label>
+                  <div class="select is-rounded">
+                    <select id="match-point">
+                      <option>3</option>
+                      <option>5</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>10</option>
+                      <option>12</option>
+                      <option>15</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <footer class="card-footer">
-                <a href="#" class="card-footer-item">Save</a>
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
+                <button class="player1-btn card-footer-item button is-primary is-large">+1</button>
+                <button class="player2-btn card-footer-item button is-info is-large">+1</button>
+              </footer>
+              <footer class="card-footer">
+                <button class="reset-btn card-footer-item button is-danger mt-2">Reset</button>
               </footer>
             </div>
           </div>
