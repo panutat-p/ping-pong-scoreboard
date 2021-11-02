@@ -17,10 +17,10 @@ const resetBtn = document.querySelector('#reset-btn');
 let matchPoint = 3;
 let isGameOver = false;
 
-const disableBothBtn = () => {
+const disableBothBtn = (p1, p2) => {
   if (isGameOver) {
-    player1.button.disabled = true;
-    player2.button.disabled = true;
+    p1.button.disabled = true;
+    p2.button.disabled = true;
   }
 };
 
@@ -41,10 +41,10 @@ matchPointBtn.addEventListener('change', () => {
 
 player1.button.addEventListener('click', () => {
   updateScores(player1);
-  disableBothBtn();
+  disableBothBtn(player1, player2);
 });
 
 player2.button.addEventListener('click', () => {
   updateScores(player2);
-  disableBothBtn();
+  disableBothBtn(player1, player2);
 });
