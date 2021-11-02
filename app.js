@@ -32,11 +32,20 @@ const updateScores = (player) => {
   }
 };
 
+const resetScores = (p1, p2) => {
+  isGameOver = false;
+  for (let p of [p1, p2]) {
+    p.score = 0;
+    p.display.textContent = 0;
+    p.button.disabled = false;
+  }
+};
+
 matchPointBtn.addEventListener('change', () => {
   console.log(matchPointBtn);
   matchPoint = parseInt(matchPointBtn.value);
   console.log({matchPoint});
-  // reset()
+  resetScores(player1, player2);
 });
 
 player1.button.addEventListener('click', () => {
@@ -47,4 +56,8 @@ player1.button.addEventListener('click', () => {
 player2.button.addEventListener('click', () => {
   updateScores(player2);
   disableBothBtn(player1, player2);
+});
+
+resetBtn.addEventListener('click', () => {
+  resetScores(player1, player2);
 });
