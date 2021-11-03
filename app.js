@@ -1,18 +1,23 @@
 const player1 = {
   score: 0,
   button: document.querySelector('#player1-btn'),
-  display: document.querySelector('#player1-score')
+  display: document.querySelector('#player1-score'),
+  winnerFlag: document.querySelector('#p1-winner-flag')
 };
 
 const player2 = {
   score: 0,
   button: document.querySelector('#player2-btn'),
-  display: document.querySelector('#player2-score')
+  display: document.querySelector('#player2-score'),
+  winnerFlag: document.querySelector('#p2-winner-flag')
 };
 
 const matchPointBtn = document.querySelector('#match-point');
 
 const resetBtn = document.querySelector('#reset-btn');
+
+player1.winnerFlag.style.display = 'none';
+player2.winnerFlag.style.display = 'none';
 
 let matchPoint = 3;
 let isGameOver = false;
@@ -29,6 +34,7 @@ const updateScores = (player) => {
   player.display.textContent = player.score;
   if (player.score === matchPoint) {
     isGameOver = true;
+    player.winnerFlag.style.display = 'block';
   }
 };
 
@@ -37,23 +43,8 @@ const resetScores = (p1, p2) => {
   for (let p of [p1, p2]) {
     p.score = 0;
     p.display.textContent = 0;
-    p.display.classList.remove('has-background-success-dark', 'has-background-danger-dark');
     p.button.disabled = false;
-  }
-};
-
-const changeScoreColors = (p1, p2) => {
-  if (!isGameOver) {
-    return;
-  }
-
-  if (p1.score === matchPoint) {
-    p1.display.classList.add('has-background-success-dark');
-    p2.display.classList.add('has-background-danger-dark');
-
-  } else if (p2.score === matchPoint) {
-    p2.display.classList.add('has-background-success-dark');
-    p1.display.classList.add('has-background-danger-dark');
+    p.winnerFlag.style.display = 'none';
   }
 };
 
@@ -66,16 +57,12 @@ matchPointBtn.addEventListener('change', () => {
 
 player1.button.addEventListener('click', () => {
   updateScores(player1);
-  changeScoreColors(player1, player2);
   disableBothBtn(player1, player2);
-  changeScoreColors(player1, player2);
 });
 
 player2.button.addEventListener('click', () => {
   updateScores(player2);
-  changeScoreColors(player1, player2);
   disableBothBtn(player1, player2);
-  changeScoreColors(player1, player2);
 });
 
 resetBtn.addEventListener('click', () => {
